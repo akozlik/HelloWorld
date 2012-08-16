@@ -14,6 +14,8 @@
 
 @implementation ViewController
 
+@synthesize textField, btnAlert;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -25,6 +27,20 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
+
+-(IBAction)sayHello:(id)sender
+{
+    NSString *name = textField.text;
+    NSString *message = [NSString stringWithFormat:@"Hello %@!", name];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alert show];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

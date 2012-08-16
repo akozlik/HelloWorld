@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate>
+{
+    IBOutlet UITextField *textField;
+    IBOutlet UIButton *btnAlert;
+}
+
+@property (nonatomic, retain) IBOutlet UITextField *textField;
+@property (nonatomic, retain) IBOutlet UIButton *btnAlert;
+
+-(IBAction)sayHello:(id)sender;
 
 @end
